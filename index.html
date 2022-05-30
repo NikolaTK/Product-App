@@ -1,8 +1,22 @@
 <link rel="stylesheet" type="text/css" href="style.css">
 <div class="nav-bar"></div>
 <div id="app">
-    <h1>{{ product }}</h1>
-    <p>{{ description}}</p>
+    <div class="product">
+        <div class="product-image">
+            <img v-bind:src="image">
+        </div>
+        <div class="product-info">
+            <h1>{{ product }}</h1>
+            <p>{{ description}}</p>
+            <ul>
+                <li v-for="detail in details">{{ detail }}</li>
+            </ul>
+            <p v-show="onSale">On Sale!</p>
+            <p v-if="inStock">In Stock</p>
+            <p v-else="inStock">Not available</p>
+            <a :href="link" target="_blank">More products like this</a>
+        </div>
+    </div>
 </div>
 <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js" ></script>
 <script src="main.js"></script>
